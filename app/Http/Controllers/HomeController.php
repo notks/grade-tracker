@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Subjects;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth()->user()->first_login==true){
+           // User::where('id',Auth()->User()->id)->update(['first_login'=>0]);
+$subjects=Subjects::all();
+return view('subjects_select',[
+'subjects'=>$subjects
+]);
+
+
+        }
+        else{
+         return view('home');
+        }
+
     }
 }
