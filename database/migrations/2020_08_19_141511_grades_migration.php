@@ -14,9 +14,10 @@ class GradesMigration extends Migration
     public function up()
     {
         Schema::create('grades', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('grade');
             $table->unsignedInteger('subject_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

@@ -14,8 +14,11 @@ class SubjectTable extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('subject');
+            $table->string('department')->nullable();
+            $table->string('year')->nullable();
+            $table->string('module_count')->nullable();
             $table->timestamps();
         });
     }

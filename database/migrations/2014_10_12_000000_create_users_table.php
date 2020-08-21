@@ -13,12 +13,18 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        //change nullable to not null columns
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('adress')->nullable();
+            $table->string('department')->nullable();
+            $table->string('class')->nullable();
+            $table->string('role')->nullable();
             $table->boolean('first_login')->default(true);
             $table->rememberToken();
             $table->timestamps();

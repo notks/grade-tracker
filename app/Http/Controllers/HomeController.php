@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth()->user()->first_login==true){
+         if(Auth()->user()->first_login==true){
            // User::where('id',Auth()->User()->id)->update(['first_login'=>0]);
 $subjects=Subjects::all();
 return view('subjects_select',[
