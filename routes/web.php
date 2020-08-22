@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/123', 'TestController@index');
+Route::post('/setup','SetupController@index')->name('setup');

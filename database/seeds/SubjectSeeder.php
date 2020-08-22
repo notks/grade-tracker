@@ -20,7 +20,10 @@ $records=array('TIZO','Osnove Poduzetnistva','Sociologija','Bosanski Jezik I Knj
 'Prakticna Nastava','Mikroracunari','WEB Programiranje','Digitalna Tehnika');
         for($i=0;$i<count($records);$i++){
            $data []=[
-               'subject'=>$records[$i]
+               'subject'=>$records[$i],
+               'course'=>'tehnicar racunarstva',
+               'year'=>4,
+               'module_count'=>3
            ];
 
         }

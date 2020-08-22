@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('adress')->nullable();
             $table->string('department')->nullable();
             $table->string('class')->nullable();
-            $table->string('role')->nullable();
+            $table->string('role')->default('user');
             $table->boolean('first_login')->default(true);
             $table->rememberToken();
             $table->timestamps();

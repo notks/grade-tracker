@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SubjectTable extends Migration
+class CreateTimetableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class SubjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('timetable', function (Blueprint $table) {
             $table->id();
-            $table->string('subject');
-            $table->string('course')->nullable();
-            $table->string('year')->nullable();
-            $table->string('module_count')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class SubjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('timetable');
     }
 }
