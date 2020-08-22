@@ -15,6 +15,8 @@ class CreateTimetableTable extends Migration
     {
         Schema::create('timetable', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('subject_id');
             $table->timestamps();
         });
     }
