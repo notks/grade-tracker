@@ -12,8 +12,7 @@
                 <div class="card-header">{{ __('Setup') }}</div>
                 <div class="card-body">
 
-                        <input type="text" name="name" placeholder="Full name" class="form-control">
-                        <br>
+
                         <input type="text" name="telephone" placeholder="Telephone" class="form-control">
                         <br>
                         <input type="text" name="address" placeholder="Address" class="form-control">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Subjects;
+use App\Timetable;
 use App\User;
+use Facade\FlareClient\Time\Time;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
          if(Auth()->user()->first_login==true){
-           // User::where('id',Auth()->User()->id)->update(['first_login'=>0]);
+
 $subjects=Subjects::all();
 return view('subjects_select',[
 'subjects'=>$subjects
@@ -36,6 +38,15 @@ return view('subjects_select',[
 
         }
         else{
+
+        $subjects=Timetable::select(
+                "*"
+            )
+            ->join("subjects", "subjects.id", "=", "timetable.subject_id")->where('user_id',Auth()->User()->id)
+            ->get();
+foreach($subjects as $subject){
+    echo $subject->subject;
+}
          return view('home');
         }
 
