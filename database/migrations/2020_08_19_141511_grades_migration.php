@@ -15,7 +15,7 @@ class GradesMigration extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
-            $table->string('grade');
+            $table->tinyInteger('grade');
             $table->tinyInteger('module');
             $table->tinyInteger('year');
             $table->unsignedInteger('subject_id');

@@ -15,6 +15,9 @@ class AddGradeController extends Controller
  }
  else{
       $grade->date=$request->date;
+ }
+ if($request->grade==='Select grade'){
+    return redirect('/grades?subject='.$request->subject.'&module='.$request->module);
 
  }
  $grade->grade=$request->grade;
