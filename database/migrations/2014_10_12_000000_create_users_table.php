@@ -22,8 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('telephone')->nullable();
             $table->string('adress')->nullable();
-            $table->string('department')->nullable();
+            $table->string('course')->nullable();
             $table->string('class')->nullable();
+            $table->tinyInteger('year')->default(4);
             $table->string('role')->default('user');
             $table->boolean('first_login')->default(true);
             $table->rememberToken();

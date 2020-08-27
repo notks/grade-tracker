@@ -9,10 +9,10 @@
 
                 <div class="card-body">
                     <table class="table">
-                        <th>
+                        <th colspan="1">
                             Subject
                         </th>
-                        <th colspan="4" >
+                        <th colspan="4" style="text-align: center" >
                             Modules
                         </th>
 
@@ -22,7 +22,7 @@
                              {{$subject->subject}}
                         </td>
                         @for($i=0;$i<$subject->module_count;$i++)
-                    <td>{{$i}}</td>
+                    <td><a href="/grades?subject={{$subject->id}}&module={{$i+1}}"><button class="btn btn-primary">Module {{$i+1}}</button></a></td>
 
                         @endfor
 

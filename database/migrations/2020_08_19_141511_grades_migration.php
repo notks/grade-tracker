@@ -20,6 +20,7 @@ class GradesMigration extends Migration
             $table->tinyInteger('year');
             $table->unsignedInteger('subject_id');
             $table->unsignedInteger('user_id');
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

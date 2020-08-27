@@ -18,6 +18,6 @@ foreach($request->subjects as $subject){
 
  User::where('id',Auth()->User()->id)->update(['first_login'=>0]);
 echo 'done';
-return view('test');
+return redirect('/home');
     }
 }
