@@ -44,10 +44,9 @@ return view('subjects_select',[
             )
             ->join("subjects", "subjects.id", "=", "timetable.subject_id")->where('user_id',Auth()->User()->id)
             ->get();
-foreach($subjects as $subject){
-    echo $subject->subject;
-}
-         return view('home');
+
+
+         return view('home',['subjects'=>$subjects]);
         }
 
     }

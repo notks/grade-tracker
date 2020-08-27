@@ -17,6 +17,7 @@ class CreateTimetableTable extends Migration
             $table->id();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('subject_id');
+            $table->tinyInteger('year')->default(4);
             $table->timestamps();
         });
     }

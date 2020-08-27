@@ -8,13 +8,31 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <table class="table">
+                        <th>
+                            Subject
+                        </th>
+                        <th colspan="4" >
+                            Modules
+                        </th>
 
-                    {{ __('You are logged in!') }}
+                        @foreach($subjects as $subject)
+                        <tr>
+                        <td>
+                             {{$subject->subject}}
+                        </td>
+                        @for($i=0;$i<$subject->module_count;$i++)
+                    <td>{{$i}}</td>
+
+                        @endfor
+
+                        </tr>
+                    @endforeach
+
+
+
+                    </table>
+
                 </div>
             </div>
         </div>
