@@ -22,7 +22,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/123', 'TestController@index');
-Route::post('/setup','SetupController@index')->name('setup');
+Route::post('setup','SetupController@index')->name('setup');
 Route::get('grades','ShowGradesController@index')->name('showgrades');
 Route::post('addgrade','AddGradeController@index')->name('addgrades');
 Route::get('deletegrade', 'DeleteGradeController@index')->name('deletegrade');
+Route::post('settings','SettingsController@index')->name('settings');
+Route::get('settings', function () {
+    return view('settings');
+});
