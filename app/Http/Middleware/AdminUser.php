@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Controllers\TestController;
 use Closure;
 
-class CheckForAdminUser
+class AdminUser
 {
     /**
      * Handle an incoming request.
@@ -16,12 +15,6 @@ class CheckForAdminUser
      */
     public function handle($request, Closure $next)
     {
-        if(Auth()->user()->role==='admin'){
-            return redirect('adminhome');
-        }else{
-              return $next($request);
-        }
-
-
+        return $next($request);
     }
 }

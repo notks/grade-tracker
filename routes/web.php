@@ -20,8 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/123', 'TestController@index');
+Route::get('home', 'HomeController@index')->name('home');
+Route::get('123', 'TestController@index');
 Route::post('setup','SetupController@index')->name('setup');
 Route::get('grades','ShowGradesController@index')->name('showgrades');
 Route::post('addgrade','AddGradeController@index')->name('addgrades');
@@ -30,3 +30,6 @@ Route::post('settings','SettingsController@index')->name('settings');
 Route::get('settings', function () {
     return view('settings');
 });
+Route::get('adminhome', 'AdminHomeController@index')->name('adminhome');
+Route::post('adminsetup', 'AdminSetupController@index')->name('adminsetup');
+Route::get('deleteuser', 'AdminSetupController@delete');

@@ -16,8 +16,11 @@
                         }
                         ">
                         <label for="id">Id</label>
-                <input class="form-control" name="id" readonly placeholder="{{Auth::user()->id}}">
+                        @if (Auth::user()->role==='user')
+                  <input class="form-control" name="id" readonly placeholder="{{Auth::user()->id}}">
                <br>
+                        @endif
+
                     <input type="text" name="name" placeholder="{{Auth::user()->name}}" class="form-control">
                     <br>
                     <input type="text" name="telephone" placeholder="{{Auth::user()->telephone}}" class="form-control">

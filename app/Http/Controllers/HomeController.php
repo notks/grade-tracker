@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Subjects;
 use App\Timetable;
 use App\Course;
+use App\Http\Middleware\CheckForAdminUser;
 use App\User;
 use Facade\FlareClient\Time\Time;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(CheckForAdminUser::class);
     }
 
     /**
