@@ -15,8 +15,9 @@
                             alert('Passwords dont mach');
                         }
                         ">
-                        <label for="id">Id</label>
+
                         @if (Auth::user()->role==='user')
+                         <label for="id">Id</label>
                   <input class="form-control" name="id" readonly placeholder="{{Auth::user()->id}}">
                <br>
                         @endif
@@ -31,7 +32,9 @@
                     <br>
                     <input type="text" name="class" placeholder="{{Auth::user()->class}}" class="form-control">
                     <br>
+                    @if (Auth::user()->role==='user')
                     <label for="year">Updating year will give you clean slate!</label>
+                    @endif
                     <select name="year"  class="form-control">
                         <option selected hidden>Update year</option>
 
@@ -58,9 +61,16 @@
 
                     </script>
 <br>
-                    <button class="btn btn-success btn-lg" type="submit">Save changes</button>
-                    </form>
 
+                    <button class="btn btn-success btn-lg" type="submit">Save changes</button>
+                  </form>
+
+@if (Auth::user()->role==='admin')
+    <form action="/deleteusers">
+    <br>
+    <button class="btn-danger btn btn-lg" onclick="confirm('Are you sure that you want to delete all users from your account?')" >Delete all users!</button>
+</form>
+@endif
                 </div>
             </div>
         </div>

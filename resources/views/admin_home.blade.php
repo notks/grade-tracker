@@ -10,7 +10,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Dashboard') }}  <div style="align-self: flex-start">year</div></div>
+
 
                 <div class="card-body">
 
@@ -22,6 +23,7 @@
                         <th>Year</th>
                         <th>Class</th>
                         <th>Select user</th>
+                        <th>Print</th>
                         <th>
                             Delete
                         </th>
@@ -36,7 +38,13 @@
                         </td>
                     <td>{{$student->year}}</td>
                     <td>{{$student->class}}</td>
-                        <td><button class=" btn btn-primary">Select</button></td>
+                    <td><form action="/admingrades">
+                        <button type="submit" name="id" value="{{$student->user_id}}" class=" btn btn-primary">Select</button>
+                    </form>
+
+                    </td>
+                    <td><a href="/printgrades?id={{$student->user_id}}"><button class="btn-secondary btn"  >Print</button></a></td>
+
                         <td><a href="/deleteuser?user={{$student->id}}"><button class="btn btn-danger btn-sm">-</button></a></td>
 
 
@@ -47,7 +55,20 @@
 
 
                     </table>
+                    <form action="/adminsetup" method="POST"  id="UserForm">
+                        {{ csrf_field() }}
+                    <div class="form-row my-2">
+                        <div class="col">
+                        <input class="form-control"  type="text" name="user[]" placeholder="Insert user id!" >
 
+                        </div>
+                        <div class="col-auto">
+                         <button id="addbtn" class="btn btn-success  mb-2 mr-4" style="border-radius: 40%"  type="submit"><b>+</b></button>
+
+                        </div>
+
+                    </div>
+                </form>
                 </div>
             </div>
         </div>

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Teaching;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -53,5 +55,9 @@ class SettingsController extends Controller
 
 
         return redirect('home');
+    }
+    public function deleteusers(Request $request){
+        Teaching::where('admin_id',Auth()->user()->id)->delete();
+        return redirect('adminhome');
     }
 }

@@ -33,3 +33,6 @@ Route::get('settings', function () {
 Route::get('adminhome', 'AdminHomeController@index')->name('adminhome');
 Route::post('adminsetup', 'AdminSetupController@index')->name('adminsetup');
 Route::get('deleteuser', 'AdminSetupController@delete');
+Route::get('admingrades', 'AdminHomeController@show');
+Route::get('printgrades', 'AdminHomeController@print');
+Route::get('deleteusers', 'SettingsController@deleteusers');

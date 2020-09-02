@@ -38,7 +38,7 @@
 
 
                         <br>
-                        <input type="text" name="class" placeholder="Class" class="form-control">
+                        <input type="text" required name="class" placeholder="Class" class="form-control">
                         <br>
                         <br>
                         <br>
