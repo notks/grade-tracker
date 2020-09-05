@@ -25,6 +25,7 @@
                 @foreach ($grades as $grade)
                     @if ($grade->subject_id===$subject->subject_id )
                     @if ( $grade->module===$i)
+
                    {{$grade->grade}}
 
 

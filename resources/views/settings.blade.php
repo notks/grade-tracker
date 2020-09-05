@@ -22,26 +22,55 @@
                <br>
                         @endif
 
-                    <input type="text" name="name" placeholder="{{Auth::user()->name}}" class="form-control">
+                    <input type="text" name="name" placeholder="@if(Auth::user()->name==''){{'Name'}}@else{{Auth::user()->name}}@endif" class="form-control">
                     <br>
-                    <input type="text" name="telephone" placeholder="{{Auth::user()->telephone}}" class="form-control">
+                    <input type="text" name="telephone" placeholder="@if(Auth::user()->telephone==''){{'Telephone'}}@else{{Auth::user()->telephone}}@endif" class="form-control">
                     <br>
-                    <input type="text" name="address" placeholder="{{Auth::user()->address}}" class="form-control">
-                    <br>
-                    <input type="text" name="course" placeholder="{{Auth::user()->course}}" class="form-control">
-                    <br>
-                    <input type="text" name="class" placeholder="{{Auth::user()->class}}" class="form-control">
+                    <input type="text" name="address" placeholder="@if(Auth::user()->address==''){{'Address'}}@else{{Auth::user()->address}}@endif" class="form-control">
                     <br>
                     @if (Auth::user()->role==='user')
+                         <select name="course" id="" class="form-control">
+                    @foreach ($courses as $course)
+                        @if ($course->course===Auth::user()->course)
+                   <option selected>{{$course->course}}</option>
+                        @else
+                        <option >{{$course->course}}</option>
+
+                        @endif
+                    @endforeach
+                   </select>
+ <br>
+ <select name="class" id="" class="form-control">
+                    @foreach ($classes as $class)
+                        @if ($class->class===Auth::user()->class)
+                   <option selected>{{$class->class}}</option>
+                        @else
+                        <option >{{$class->class}}</option>
+
+                        @endif
+                    @endforeach
+                   </select>
+
+<br>
+
+
+
+
+
                     <label for="year">Updating year will give you clean slate!</label>
                     @endif
                     <select name="year"  class="form-control">
                         <option selected hidden>Update year</option>
+                        @for ($i = 1; $i <5; $i++)
+                        @if ($i===Auth::user()->year)
+                        <option selected>{{$i}}</option>
+                             @else
+                             <option >{{$i}}</option>
 
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                             @endif
+
+                        @endfor
+
 
                     </select>
                     <br>
@@ -70,6 +99,14 @@
     <br>
     <button class="btn-danger btn btn-lg" onclick="confirm('Are you sure that you want to delete all users from your account?')" >Delete all users!</button>
 </form>
+<form action="/subjects">
+    <br>
+<button class="btn-primary btn" type="submit">Subjects</button>
+</form>
+<form action="/classes">
+    <br>
+    <button class="btn-primary btn" type="submit" >Classes</button>
+    </form>
 @endif
                 </div>
             </div>

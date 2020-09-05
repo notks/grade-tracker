@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}  <div style="align-self: flex-start">year</div></div>
+            <div class="card-header">{{ __('Dashboard') }} <br> <div style="align-self: flex-start">Year you are on {{Auth::user()->year}}</div></div>
 
 
                 <div class="card-body">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes;
 use App\Subjects;
 use App\Timetable;
 use App\Course;
@@ -41,12 +42,13 @@ class HomeController extends Controller
 
 
          if(count($subjects)===0){
-
+$classes=Classes::all();
 $subjects=Subjects::all();
 $courses=Course::all();
 return view('subjects_select',[
 'subjects'=>$subjects,
-'courses'=>$courses
+'courses'=>$courses,
+'clasess'=>$classes
 ]);
 
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes;
+use App\Course;
 use App\Teaching;
 use App\User;
 use Illuminate\Http\Request;
@@ -10,6 +12,11 @@ use Illuminate\Support\Facades\Hash;
 
 class SettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
     public function index(Request $request){
     if($request->email!==null){
         User::where('id',Auth()->User()->id)
@@ -60,4 +67,13 @@ class SettingsController extends Controller
         Teaching::where('admin_id',Auth()->user()->id)->delete();
         return redirect('adminhome');
     }
+    public function show(){
+        $courses=Course::all();
+        $classes=Classes::all();
+        return view('settings',[
+            'courses'=>$courses,
+            'classes'=>$classes
+            ]);
+    }
+
 }

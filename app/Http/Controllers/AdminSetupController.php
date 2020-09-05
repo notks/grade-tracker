@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class AdminSetupController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(AdminPermission::class);
+
+
+    }
     public function index(Request $request){
         if($request->addAll==true){
             $users=User::where('role','user')->get();

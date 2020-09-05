@@ -12,9 +12,9 @@
                 <div class="card-header">{{ __('Setup') }}</div>
                 <div class="card-body">
 @if (Auth::user()->first_login==true)
-                        <input type="text" name="telephone" placeholder="Telephone" class="form-control">
+                        <input type="text" name="telephone" placeholder="Telephone" class="form-control" >
                         <br>
-                        <input type="text" name="address" placeholder="Address" class="form-control">
+                        <input type="text" name="address" placeholder="Address" class="form-control" required>
                         <br>
                         <label for="course">Course</label> <br>
                         <select name="course" class="form-control" >
@@ -38,7 +38,15 @@
 
 
                         <br>
-                        <input type="text" required name="class" placeholder="Class" class="form-control">
+                        <label for="class">Class</label><br>
+                        <select name="class" class="form-control" >
+
+                        @foreach ($clasess as $class)
+                        <option>{{$class->class}}</option>
+                        @endforeach
+
+
+                        </select>
                         <br>
                         <br>
                         <br>
