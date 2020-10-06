@@ -8,6 +8,8 @@ use App\Timetable;
 use App\User;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\VarDumper;
+use App\Http\Middleware\AdminPermission;
+
 
 class AdminHomeController extends Controller
 {

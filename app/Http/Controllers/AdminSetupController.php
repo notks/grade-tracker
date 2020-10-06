@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Teaching;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Middleware\AdminPermission;
+
 
 class AdminSetupController extends Controller
 {
