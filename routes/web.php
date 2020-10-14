@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\PostRouteMiddleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,23 +22,23 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
-Route::post('setup','SetupController@index')->name('setup');
+Route::any('setup','SetupController@index')->name('setup')->middleware(PostRouteMiddleware::class);
 Route::get('grades','ShowGradesController@index')->name('showGrades');
-Route::post('addgrade','AddGradeController@index')->name('addGrades');
+Route::any('addgrade','AddGradeController@index')->name('addGrades')->middleware(PostRouteMiddleware::class);
 Route::get('deletegrade', 'DeleteGradeController@index')->name('deleteGrade');
-Route::post('settings','SettingsController@index')->name('changeSettings');
+Route::any('settings','SettingsController@index')->name('changeSettings')->middleware(PostRouteMiddleware::class);
 Route::get('settings', 'SettingsController@show')->name('settings');
 Route::get('adminhome', 'AdminHomeController@index')->name('adminhome');
-Route::post('adminsetup', 'AdminSetupController@index')->name('adminsetup');
+Route::any('adminsetup', 'AdminSetupController@index')->name('adminsetup')->middleware(PostRouteMiddleware::class);
 Route::get('deleteuser', 'AdminSetupController@delete')->name('deleteUser');
 Route::get('admingrades', 'AdminHomeController@show')->name('adminGrades');
 Route::get('printgrades', 'AdminHomeController@print')->name('printgrades');
 Route::get('deleteusers', 'SettingsController@deleteusers')->name('deleteAllUsers');
-Route::post('addsubject','SubjectControler@save')->name('addSubject');
+Route::any('addsubject','SubjectControler@save')->name('addSubject')->middleware(PostRouteMiddleware::class);
 Route::get('subjects','SubjectControler@index')->name('subjects');
 Route::get('deletesubject','SubjectControler@delete')->name('deleteSubject');
 Route::get('deleteclass','ClassesController@delete')->name('deleteClass');
 Route::get('classes','ClassesController@index')->name('classes');
-Route::post('addclass','ClassesController@save')->name('addclass');
+Route::any('addclass','ClassesController@save')->name('addclass')->middleware(PostRouteMiddleware::class);
 
 

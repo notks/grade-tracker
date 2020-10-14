@@ -51,8 +51,8 @@ class AdminSetupController extends Controller
         return redirect('adminhome');
     }
     public function delete(Request $request){
-        error_log($request->user);
-Teaching::where('id',$request->user)->delete();
+        Teaching::where('user_id',$request->user)->firstOrFail();
+Teaching::where('user_id',$request->user)->delete();
 return redirect('adminhome');
 }
 }

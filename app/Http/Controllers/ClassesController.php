@@ -25,6 +25,8 @@ $class->save();
 return redirect('classes');
     }
     public function delete(Request $request){
+        Classes::where('id',$request->id)->firstOrFail();
+
 Classes::where('id',$request->id)->delete();
 return redirect('classes');
     }

@@ -45,7 +45,7 @@
                     </td>
                     <td><a href="/printgrades?id={{$student->user_id}}"><button class="btn-secondary btn"  >Print</button></a></td>
 
-                        <td><a href="/deleteuser?user={{$student->id}}"><button class="btn btn-danger btn-sm">-</button></a></td>
+                        <td><a href="/deleteuser?user={{$student->user_id}}"><button class="btn btn-danger btn-sm">-</button></a></td>
 
 
 

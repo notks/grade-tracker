@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminPermission
+class PostRouteMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,9 @@ class AdminPermission
      */
     public function handle($request, Closure $next)
     {
-        if(Auth()->user()->role==='admin'){
-             return $next($request);
+        if(!$request->isMethod('post')){
+            abort(404);
         }
-        else{
-           abort(404);
-        }
-
+        return $next($request);
     }
 }

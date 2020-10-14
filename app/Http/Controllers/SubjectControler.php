@@ -33,6 +33,7 @@ class SubjectControler extends Controller
          ]);
      }
      public function delete(Request $request){
+        Subjects::where('id',$request->id)->firstOrFail();
          Subjects::where('id',$request->id)->delete();
 return redirect('subjects');
      }

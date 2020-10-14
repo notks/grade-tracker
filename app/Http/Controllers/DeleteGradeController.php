@@ -11,15 +11,13 @@ class DeleteGradeController extends Controller
     $this->middleware('auth');
 }
     public function index(Request $request){
-        $grade=Grade::where('id',$request->grade)
-        ->get();
-        echo $grade;
-        if($grade[0]->user_id==Auth()->user()->id){
+        $grade=Grade::where('id',$request->grade)->firstOrFail();
+        if($grade->user_id===Auth()->user()->id){
             Grade::where('id',$request->grade)
             ->delete();
  return redirect ('/grades?subject='.$request->subject.'&module='.$request->module);
         }else{
-            return (401);
+            abort(401);
         }
 
     }
