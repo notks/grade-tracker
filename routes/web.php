@@ -23,9 +23,9 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 Route::any('setup','SetupController@index')->name('setup')->middleware(PostRouteMiddleware::class);
-Route::get('grades','ShowGradesController@index')->name('showGrades');
-Route::any('addgrade','AddGradeController@index')->name('addGrades')->middleware(PostRouteMiddleware::class);
-Route::get('deletegrade', 'DeleteGradeController@index')->name('deleteGrade');
+Route::get('grades','GradeController@show')->name('showGrades');
+Route::any('addgrade','GradeController@store')->name('addGrades')->middleware(PostRouteMiddleware::class);
+Route::get('deletegrade', 'GradeController@destroy')->name('deleteGrade');
 Route::any('settings','SettingsController@index')->name('changeSettings')->middleware(PostRouteMiddleware::class);
 Route::get('settings', 'SettingsController@show')->name('settings');
 Route::get('adminhome', 'AdminHomeController@index')->name('adminhome');
